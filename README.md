@@ -10,7 +10,8 @@ It is extremply easy to use this. Here are the steps to be followed:
 * Enter details like PIN code, Age, Email ID, Password(that you generated in previous step) in `config.cfg`
 
 * On your terminal run the following commands:
-  `pip install -r requirements.txt` 
+  `pip install -r requirements.txt` # Installs the required packages
+
   `python run_cron.py` (You might have to authenticate/use admin access on your system)
   
 Done!
