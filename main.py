@@ -30,8 +30,10 @@ async def main():
             valid_responses = get_valid_sessions(args, resp_json)
             if len(valid_responses)>0 and args['send_mail']:
                 send_mail(args, valid_responses)
+                print("Sent email!")
                 with open('last_update.txt','w') as f:
                     message_text =  get_mail_text(valid_responses)
                     f.write(message_text)
+                    
 
 asyncio.run(main())
