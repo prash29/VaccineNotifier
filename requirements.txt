@@ -1,0 +1,4 @@
+aiohttp==3.7.4.post0
+asyncio==3.4.3
+configparser-5.0.2
+python_crontab==2.5.1
