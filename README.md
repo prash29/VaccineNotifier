@@ -17,4 +17,4 @@ Done!
 
 Here is a sample screenshot of the email it sends you:
 
-![Screenshot](https://github.com/prash29/VaccineNotifier/blob/main/screenshot.jpg)
+![Screenshot](https://github.com/prash29/VaccineNotifier/blob/main/screenshot.jpg | width=200)
