@@ -8,7 +8,7 @@ import os
 from utils import *
 import time
 
-base_path = '/Users/prashant/Downloads/Coswara/to_upload/vaccine_notifier/v2'
+base_path = os.path.dirname(os.path.abspath(__file__))
 conf_path = os.path.join(base_path, 'config.cfg')
 config = cp.ConfigParser()
 config.read(conf_path)
