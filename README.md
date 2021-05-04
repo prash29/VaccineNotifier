@@ -1,4 +1,4 @@
-### VaccineNotifier
+## VaccineNotifier
 
 VaccineNotifier will periodically check the CoWIN portal to find availability of vaccination slots in your PIN code and your age. If it finds available slots, it will send you an email. (Once an email has been sent, the script waits for an hour to send you the next update)
 
@@ -10,7 +10,8 @@ It is extremply easy to use this. Here are the steps to be followed:
 * Enter details like PIN code, Age, Email ID, Password(that you generated in previous step) in `config.cfg`
 
 * On your terminal run the following commands:
-  `pip install -r requirements.txt` # Installs the required packages
+
+  `pip install -r requirements.txt` (Installs the required packages)
 
   `python run_cron.py` (You might have to authenticate/use admin access on your system)
   
