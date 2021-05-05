@@ -9,7 +9,7 @@ It is extremely easy to use this. Here are the steps to be followed:
 
 * Enter details like PIN code, Age, Email ID, Password(that you generated in previous step) in `config.cfg`
 
-* On your terminal run the following commands:
+* On your terminal run the following commands (I am using Python 3.7 to run these scripts):
 
   `pip install -r requirements.txt` (Installs the required packages)
 
