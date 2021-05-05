@@ -13,7 +13,7 @@ def run(args):
     if time_since_mail < 60:
         time.sleep(int(60-time_since_mail)*60)
 
-    url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={}&date={}'.format(args['pincode'], cur_date)
+    url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={}&date={}'.format(args['pincode'], args['date'])
     resp_json = requests.get(url).json()
     valid_responses = get_valid_sessions(args, resp_json)
     if len(valid_responses)>0 and args['send_mail']:
@@ -30,6 +30,6 @@ if __name__=='__main__':
     config.read(conf_path)
     args = config['Default']
     args['base_path'] = base_path
-    cur_date = date.today().strftime("%d-%m-%y")
+    args['date'] = date.today().strftime("%d-%m-%y")
     print("Hello!")
     run(args)
