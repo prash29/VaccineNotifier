@@ -35,5 +35,5 @@ async def main():
                     message_text =  get_mail_text(valid_responses)
                     f.write(message_text)
                     
-
-asyncio.run(main())
+run_main = asyncio.get_event_loop()
+run_main.run_until_complete(main())
