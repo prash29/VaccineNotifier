@@ -3,7 +3,6 @@ from crontab import CronTab
 import configparser as cp
 import smtplib
 from datetime import date
-from pdb import set_trace as bp
 import os
 from utils import *
 import time
