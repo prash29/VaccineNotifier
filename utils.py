@@ -17,7 +17,7 @@ def send_mail(args,responses):
 def get_mail_text(responses):
     message_text = "Vaccine Availability Information \n\n"
     for i, resp in enumerate(responses):
-        message_text+= "{}.\nName: {} \nDistrict: {} \nVaccine Name: {} \nSlots: {}\nCost:{}\n\n\n".format(i+1,resp['name'], resp['district_name'], resp['vaccine'], resp['slots'], resp['fee'])
+        message_text+= "{}.\nName: {} \nDistrict: {} \nVaccine Name:{}\nPIN: {}\nAvailable Capacity: {} \nSlots: {}\nCost:{}\n\n\n".format(i+1,resp['name'], resp['district_name'], resp['vaccine'], resp['pincode'], resp['available_capacity'], resp['slots'], resp['fee'])
     return message_text
 
 def get_valid_sessions(args, resp_json):
