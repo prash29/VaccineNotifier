@@ -14,15 +14,10 @@ Example of the config file:
 
    ```
    pincode=560066,560020,560022 # Add one or more PIN codes separated by comma
-    
    age=23
-    
    send_mail=True
-    
    password= # Enter your password here
-    
    email_id=xyz@gmail.com
-    
    date='' 
    
    # By default, it will use the current/today's date
