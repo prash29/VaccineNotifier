@@ -9,12 +9,18 @@ It is extremely easy to use this. Here are the steps to be followed:
 
 * Enter details like PIN code(comma separated for multiple pincodes), Age, Email ID, Password(that you generated in previous step) in `config.cfg`
 
-Example of `config.cfg`
+Example of the config file:
+
     pincode=560066,560020,560022 # Add one or more PIN codes separated by comma
+    
     age=23
+    
     send_mail=True
+    
     password= # Enter your password here
+    
     email_id=xyz@gmail.com
+    
     date='' # If you want information for a particular date, enter the date in DD-MM-YYYY format, else leave it blank and it will use the current/today's date by default.
 
 * On your terminal run the following commands (I am using Python 3.7 to run these scripts):
