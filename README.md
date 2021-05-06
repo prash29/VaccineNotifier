@@ -25,8 +25,8 @@ Example of the config file:
     
    date='' 
    
-   # If you want information for a particular date, enter the date in DD-MM-YYYY format
-     Else leave it blank and it will use the current/today's date by default.
+   # By default, it will use the current/today's date
+     If you want information for a particular date, enter the date in DD-MM-YYYY format
    ```
 
 * On your terminal run the following commands (I am using Python 3.7 to run these scripts):
