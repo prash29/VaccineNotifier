@@ -13,23 +13,19 @@ def run(args):
     if time_since_mail < 60:
         time.sleep(int(60-time_since_mail)*60)
 
-    url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={}&date={}'.format(args['pincode'], args['date'])
-    resp_json = requests.get(url).json()
-    valid_responses = get_valid_sessions(args, resp_json)
-    if len(valid_responses)>0 and args['send_mail']:
-        send_mail(args, valid_responses)
+    valid_pincodes, mail_text = [], ""
+    for pin in args['pincode']:
+        url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={}&date={}'.format(pin, args['date'])
+        resp_json = requests.get(url, headers=args['headers_dict']).json()
+        valid_responses = get_valid_sessions(args, resp_json)
+        if len(valid_responses)>0 and args['send_mail']:
+            valid_pincodes.append(pin)
+            mail_text = get_mail_text(valid_responses, mail_text, pin)
+    if len(valid_pincodes)>0 and args['send_mail']:
+        send_mail(args, valid_pincodes, mail_text)
         with open('last_update.txt','w') as f:
-            message_text =  get_mail_text(valid_responses)
-            f.write(message_text)
-
+            f.write(mail_text)
 
 if __name__=='__main__':
-    base_path = os.path.dirname(os.path.abspath(__file__))
-    config = cp.ConfigParser()
-    conf_path = os.path.join(base_path, 'config.cfg')
-    config.read(conf_path)
-    args = config['Default']
-    args['base_path'] = base_path
-    args['date'] = date.today().strftime("%d-%m-%y")
-    print("Hello!")
+    args = init_config()
     run(args)
