@@ -1,16 +1,11 @@
 import requests
-from crontab import CronTab
-import configparser as cp
-import smtplib
-from datetime import date
-import os
 from utils import *
 import time
 
 def run(args):
-    # If a notification has been sent in the last hour, wait till an hour elapses
+    # If a notification has been sent in the last half hour, wait till the time elapses
     time_since_mail = time_since_last_mail(args)
-    if time_since_mail < 60:
+    if time_since_mail < 30:
         time.sleep(int(60-time_since_mail)*60)
 
     valid_pincodes, mail_text = [], ""

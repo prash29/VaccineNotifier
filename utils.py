@@ -2,7 +2,6 @@ import smtplib
 from datetime import datetime, date
 import os
 import configparser as cp
-import time
 
 def send_mail(args, valid_pincodes, message_text):
     server = smtplib.SMTP('smtp.gmail.com:587')
@@ -18,15 +17,16 @@ def send_mail(args, valid_pincodes, message_text):
 def get_mail_text(responses, message_text,pin):
     message_text += "\nVaccine Availability Information for PIN: {}\n\n".format(pin)
     for i, resp in enumerate(responses):
-        message_text+= "{}.\nName: {} \nDistrict: {} \nVaccine Name: {} \nPIN: {}\nAvailable Capacity: {} \nSlots: {}\nCost:{}\n\n\n".format(i+1,resp['name'], resp['district_name'], resp['vaccine'], resp['pincode'], resp['available_capacity'], resp['slots'], resp['fee'])
+        message_text+= "{}.\nName: {} \nDistrict: {} \nVaccine Name: {} \nPIN: {}\nAvailable Capacity (Dose 1): {}\nAvailable Capacity (Dose 2): {} \nSlots: {}\nCost:{}\n\n\n".format(i+1,resp['name'], resp['district_name'], resp['vaccine'], resp['pincode'], resp['available_capacity_dose1'],resp['available_capacity_dose2'], resp['slots'], resp['fee'])
     return message_text
 
 def get_valid_sessions(args, resp_json):
     sessions = resp_json['sessions']
     valid_sessions = []
     for sess in sessions:
-        if (int(args['age'])>=sess['min_age_limit']) and (sess['available_capacity']>0):
-            valid_sessions.append(sess)
+        if (args['vaccine'].upper() == sess['vaccine']):
+            if (int(args['age'])>=sess['min_age_limit']) and (sess['available_capacity']>0):
+                valid_sessions.append(sess)
     return valid_sessions
 
 def init_config():

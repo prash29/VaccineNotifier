@@ -1,6 +1,6 @@
 ## VaccineNotifier
 
-VaccineNotifier will periodically check the CoWIN portal to find availability of vaccination slots for one or more PIN codes and your age. If it finds available slots, it will send you an email. (Once an email has been sent, the script waits for an hour to send you the next update)
+VaccineNotifier will periodically check the CoWIN portal to find availability of vaccination slots. In the config file (explained below), you can enter one or more PIN codes, your age, your choice of vaccine and which dose. If it finds available slots, it will send you an email. (Once an email has been sent, the script waits for half an hour to send you the next update)
 
 It is extremely easy to use this. Here are the steps to be followed:
 
@@ -16,6 +16,8 @@ Example of `config.cfg`
     password= # Enter your password here
     email_id=xyz@gmail.com
     date='' # If you want information for a particular date, enter the date in DD-MM-YYYY format, else leave it blank and it will use the current/today's date by default.
+    vaccine = Covishield # Enter the vaccine you want (Covishield/Covaxin). This field is not case sensitive. 
+    dose=2 # Enter 1 for first and 2 for second dose
 
 * On your terminal run the following commands (I am using Python 3.7 to run these scripts):
 
@@ -27,4 +29,4 @@ Done!
 
 Here is a sample screenshot of the email it sends you:
 
-![Screenshot](https://github.com/prash29/VaccineNotifier/blob/main/screenshot.jpg)
+![Screenshot](https://github.com/prash29/VaccineNotifier/blob/main/screenshot_2.jpg)
