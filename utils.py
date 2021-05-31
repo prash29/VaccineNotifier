@@ -36,7 +36,7 @@ def init_config():
     config.read(conf_path)
     args = dict(config['Default'])
     args['base_path'] = base_path
-    if args['date'] !='':
+    if args['date'] =='':
         args['date'] = date.today().strftime("%d-%m-%y")
     x = args['pincode'].split(',')
     args['pincode'] = x
